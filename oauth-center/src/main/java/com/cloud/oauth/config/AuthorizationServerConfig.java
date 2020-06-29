@@ -39,6 +39,7 @@ import java.util.Map;
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
+    
     /**
      * 认证管理器
      *
