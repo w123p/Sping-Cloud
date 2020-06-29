@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>commons</artifactId>
+	<packaging>jar</packaging>
+
+	<parent>
+		<groupId>com.cloud</groupId>
+		<artifactId>cloud-service</artifactId>
+		<version>2.0</version>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.cloud</groupId>
+			<artifactId>api-model</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security.oauth</groupId>
+			<artifactId>spring-security-oauth2</artifactId>
+			<version>${security-oauth2.version}</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<!--被依赖的公共模块必须加上这个，打包之后启动，
+                    选择后面带EXE的启动，依赖该模块的其他模块就不会因为找不到依赖而打包出错-->
+					<classifier>exe</classifier>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
